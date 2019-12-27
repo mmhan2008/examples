@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>任务管理</title>
+    <link rel="stylesheet" href="css/amazeui.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/job.js"></script>
+    <script src="js/amazeui.min.js"></script>
+    <style type="text/css">
+        [class*=am-u-] {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            /* float: left; */
+            position: absolute;
+            margin-left: -10%;
+        }
+    </style>
+</head>
+<body>
+    <div data-type="index">
+        <div class="am-g tpl-g">
+            <div class="tpl-content-wrapper">
+                <div class="am-u-lg-12 am-margin-top-xl">
+                    <div class="widget-head am-cf">
+                        <div class="widget-title am-cf">
+                            <span class="am-modal-btn" id="new-job">新建任务</span>
+                        </div>
+                    </div>
+                    <table width="100%"
+                           class="am-table am-table-compact am-table-striped tpl-table-black "
+                           id="result-list">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>群组名</th>
+                            <th>任务名</th>
+                            <th>类路径</th>
+                            <th>cron表达式</th>
+                            <th>数据</th>
+                            <th>状态</th>
+                            <th>描述</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody class="result-list">
+                            <!-- more data -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-confirm" tabindex="-1" id="add-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">新增</div>
+            <div class="am-modal-news-bd">
+                <ul class="am-list">
+                    <li class="am-list am-list-item-dated">
+                        <span class="group-name-a">群组名：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="job-name-a">任务名：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="class-path-a">类路径：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="cron-a">cron表达式：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="data-map-a">数据：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="description-a">描述：  <input type="text"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-confirm" tabindex="-1" id="edit-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">修改</div>
+            <div class="am-modal-news-bd">
+                <ul class="am-list">
+                    <li class="am-list am-list-item-dated" style="display: none;">
+                        <span class="job-id-e">编号：  <input type="text"></span>
+                    </li>
+                    <li class="am-list am-list-item-dated">
+                        <span class="group-name-e">群组名：  <input type="text" readonly></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="job-name-e">任务名：  <input type="text" readonly></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="class-path-e">类路径：  <input type="text" readonly></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="cron-e">cron表达式：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="data-map-e">数据：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="description-e">描述：  <input type="text"></span>
+                    </li>
+                    <li class="am-g am-list-item-dated">
+                        <span class="status-e" style="display: none;">status：  <input type="text"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

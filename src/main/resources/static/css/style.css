@@ -1,0 +1,21 @@
+.am-list li {
+    margin: 10px 0;
+    padding: 0 10px;
+    text-align: left;
+}
+.am-list li span{
+    padding: 10px 0;
+}
+.am-list li span input{
+    width: 73%;
+    padding: 10px 10px;
+}
+.am-list li{
+    border: none;
+}
+.am-modal-bd{
+    background-color: white;
+}
+.am-modal-dialog{
+    background-color: white;
+}
