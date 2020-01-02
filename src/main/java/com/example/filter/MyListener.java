@@ -8,7 +8,7 @@ import javax.servlet.http.*;
  * @author user01
  * @create 2019/10/29
  */
-@WebListener
+// @WebListener
 public class MyListener implements ServletRequestListener,ServletRequestAttributeListener,
         HttpSessionListener,HttpSessionAttributeListener,ServletContextListener,
         ServletContextAttributeListener {

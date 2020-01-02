@@ -57,29 +57,29 @@ public class MyFilter implements Filter {
     private boolean isFilterExcludeRequest(HttpServletRequest request) {
         if(null != excludedPathArray && excludedPathArray.length > 0) {
             String url = request.getRequestURI();
-            for (String ecludedUrl : excludedPathArray) {
-                if (ecludedUrl.startsWith("*.")) {
+            for (String excludedUrl : excludedPathArray) {
+                if (excludedUrl.startsWith("*.")) {
                     // 如果配置的是后缀匹配, 则把前面的*号干掉，然后用endWith来判断
-                    if(url.endsWith(ecludedUrl.substring(1))){
+                    if(url.endsWith(excludedUrl.substring(1))){
                         return true;
                     }
-                } else if (ecludedUrl.endsWith("/*")) {
-                    if(!ecludedUrl.startsWith("/")) {
+                } else if (excludedUrl.endsWith("/*")) {
+                    if(!excludedUrl.startsWith("/")) {
                         // 前缀匹配，必须要是/开头
-                        ecludedUrl = "/" + ecludedUrl;
+                        excludedUrl = "/" + excludedUrl;
                     }
                     // 如果配置是前缀匹配, 则把最后的*号干掉，然后startWith来判断
-                    String prffixStr = request.getContextPath() + ecludedUrl.substring(0, ecludedUrl.length() - 1);
-                    if(url.startsWith(prffixStr)) {
+                    String prefixStr = request.getContextPath() + excludedUrl.substring(0, excludedUrl.length() - 1);
+                    if(url.startsWith(prefixStr)) {
                         return true;
                     }
                 } else {
                     // 如果不是前缀匹配也不是后缀匹配,那就是全路径匹配
-                    if(!ecludedUrl.startsWith("/")) {
+                    if(!excludedUrl.startsWith("/")) {
                         // 全路径匹配，也必须要是/开头
-                        ecludedUrl = "/" + ecludedUrl;
+                        excludedUrl = "/" + excludedUrl;
                     }
-                    String targetUrl = request.getContextPath() + ecludedUrl;
+                    String targetUrl = request.getContextPath() + excludedUrl;
                     if(url.equals(targetUrl)) {
                         return true;
                     }
